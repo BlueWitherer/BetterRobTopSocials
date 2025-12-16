@@ -10,15 +10,16 @@ bool SocialsPopup::setup() {
 
     auto bg = CCScale9Sprite::create("square02_001.png");
     bg->setAnchorPoint({ 0.5, 0.5 });
-    bg->setContentSize({ 225.f, 62.5f });
+    bg->setContentSize({ 250.f, 62.5f });
     bg->setPosition({ m_mainLayer->getScaledContentWidth() / 2.f, (m_mainLayer->getScaledContentHeight() / 2.f) * 0.875f });
     bg->setOpacity(50);
 
     m_mainLayer->addChild(bg);
 
     auto layout = RowLayout::create()
-        ->setGap(6.25f)
-        ->setAxisAlignment(AxisAlignment::Center);
+        ->setGap(5.f)
+        ->setAxisAlignment(AxisAlignment::Center)
+        ->setAutoScale(true);
 
     auto menu = CCMenu::create();
     menu->setID("socials-menu");
@@ -29,11 +30,8 @@ bool SocialsPopup::setup() {
 
     m_mainLayer->addChild(menu);
 
-    auto fbBtnSprite = CCSprite::createWithSpriteFrameName("gj_fbIcon_001.png");
-    fbBtnSprite->setScale(1.25f);
-
     auto fbBtn = CCMenuItemSpriteExtra::create(
-        fbBtnSprite,
+        CCSprite::createWithSpriteFrameName("gj_fbIcon_001.png"),
         this,
         menu_selector(SocialsPopup::onFacebook)
     );
@@ -41,11 +39,8 @@ bool SocialsPopup::setup() {
 
     menu->addChild(fbBtn);
 
-    auto twtBtnSprite = CCSprite::createWithSpriteFrameName("gj_twIcon_001.png");
-    twtBtnSprite->setScale(1.25f);
-
     auto twtBtn = CCMenuItemSpriteExtra::create(
-        twtBtnSprite,
+        CCSprite::createWithSpriteFrameName("gj_twIcon_001.png"),
         this,
         menu_selector(SocialsPopup::onTwitter)
     );
@@ -53,11 +48,8 @@ bool SocialsPopup::setup() {
 
     menu->addChild(twtBtn);
 
-    auto ytBtnSprite = CCSprite::createWithSpriteFrameName("gj_ytIcon_001.png");
-    ytBtnSprite->setScale(1.25f);
-
     auto ytBtn = CCMenuItemSpriteExtra::create(
-        ytBtnSprite,
+        CCSprite::createWithSpriteFrameName("gj_ytIcon_001.png"),
         this,
         menu_selector(SocialsPopup::onYouTube)
     );
@@ -65,11 +57,8 @@ bool SocialsPopup::setup() {
 
     menu->addChild(ytBtn);
 
-    auto twBtnSprite = CCSprite::createWithSpriteFrameName("gj_twitchIcon_001.png");
-    twBtnSprite->setScale(1.25f);
-
     auto twBtn = CCMenuItemSpriteExtra::create(
-        twBtnSprite,
+        CCSprite::createWithSpriteFrameName("gj_twitchIcon_001.png"),
         this,
         menu_selector(SocialsPopup::onTwitch)
     );
@@ -77,17 +66,25 @@ bool SocialsPopup::setup() {
 
     menu->addChild(twBtn);
 
-    auto dcBtnSprite = CCSprite::createWithSpriteFrameName("gj_discordIcon_001.png");
-    dcBtnSprite->setScale(1.25f);
-
     auto dcBtn = CCMenuItemSpriteExtra::create(
-        dcBtnSprite,
+        CCSprite::createWithSpriteFrameName("gj_discordIcon_001.png"),
         this,
         menu_selector(SocialsPopup::onDiscord)
     );
     dcBtn->setID("discord-button");
 
     menu->addChild(dcBtn);
+
+    menu->updateLayout(true);
+
+    auto rdBtn = CCMenuItemSpriteExtra::create(
+        CCSprite::createWithSpriteFrameName("gj_rdIcon_001.png"),
+        this,
+        menu_selector(SocialsPopup::onReddit)
+    );
+    rdBtn->setID("reddit-button");
+
+    menu->addChild(rdBtn);
 
     menu->updateLayout(true);
 
@@ -155,6 +152,17 @@ void SocialsPopup::onDiscord(CCObject*) {
         "Cancel", "OK",
         [this](bool, bool btn2) {
             if (btn2) web::openLinkInBrowser("https://discord.com/invite/geometrydash");
+        }, true
+    );
+};
+
+void SocialsPopup::onReddit(CCObject*) {
+    createQuickPopup(
+        "Reddit",
+        "Join official <co>Reddit</c> community?",
+        "Cancel", "OK",
+        [this](bool, bool btn2) {
+            if (btn2) web::openLinkInBrowser("https://www.reddit.com/r/geometrydash/");
         }, true
     );
 };

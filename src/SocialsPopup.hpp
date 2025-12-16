@@ -9,6 +9,7 @@ protected:
     void onYouTube(CCObject*);
     void onTwitch(CCObject*);
     void onDiscord(CCObject*);
+    void onReddit(CCObject*);
 
     void onWebsite(CCObject*);
 
