@@ -1,0 +1,36 @@
+{
+    "geode": "4.10.0",
+    "gd": {
+        "win": "2.2074",
+        "android": "2.2074",
+        "mac": "2.2074",
+        "ios": "2.2074"
+    },
+    "id": "cheeseworks.betterrobtopsocials",
+    "name": "Better RobTop Socials",
+    "version": "1.0.0",
+    "developers": [
+        "Cheeseworks"
+    ],
+    "description": "Improve the social buttons on the main menu.",
+    "tags": [
+        "offline",
+        "enhancement"
+    ],
+    "links": {
+        "source": "https://github.com/BlueWitherer/BetterRobTopSocials",
+        "homepage": "https://www.cheeseworks.gay/",
+        "community": "https://www.dsc.gg/cubic"
+    },
+    "issues": {
+        "info": "Report any issues to my repository!",
+        "url": "https://www.github.com/BlueWitherer/BetterRobTopSocials/issues/"
+    },
+    "dependencies": {
+        "geode.node-ids": {
+            "importance": "required",
+            "version": ">=1.21.0"
+        }
+    },
+    "early-load": false
+}
