@@ -104,17 +104,71 @@ bool SocialsPopup::setup() {
     return true;
 };
 
-void SocialsPopup::onFacebook(CCObject*) {};
+void SocialsPopup::onFacebook(CCObject*) {
+    createQuickPopup(
+        "Facebook",
+        "Visit official <cl>Facebook</c> page?",
+        "Cancel", "OK",
+        [this](bool, bool btn2) {
+            if (btn2) web::openLinkInBrowser("https://www.facebook.com/geometrydash/");
+        }, true
+    );
+};
 
-void SocialsPopup::onTwitter(CCObject*) {};
+void SocialsPopup::onTwitter(CCObject*) {
+    createQuickPopup(
+        "Twitter",
+        "Visit official <cj>Twitter</c> page?",
+        "Cancel", "OK",
+        [this](bool, bool btn2) {
+            if (btn2) web::openLinkInBrowser("https://www.twitter.com/robtopgames/");
+        }, true
+    );
+};
 
-void SocialsPopup::onYouTube(CCObject*) {};
+void SocialsPopup::onYouTube(CCObject*) {
+    createQuickPopup(
+        "YouTube",
+        "Visit official <cr>YouTube</c> channel?",
+        "Cancel", "OK",
+        [this](bool, bool btn2) {
+            if (btn2) web::openLinkInBrowser("https://www.youtube.com/@RobTopGames/");
+        }, true
+    );
+};
 
-void SocialsPopup::onTwitch(CCObject*) {};
+void SocialsPopup::onTwitch(CCObject*) {
+    createQuickPopup(
+        "Twitch",
+        "Visit <ca>Twitch</c> game category page?",
+        "Cancel", "OK",
+        [this](bool, bool btn2) {
+            if (btn2) web::openLinkInBrowser("https://www.twitch.tv/directory/category/geometry-dash");
+        }, true
+    );
+};
 
-void SocialsPopup::onDiscord(CCObject*) {};
+void SocialsPopup::onDiscord(CCObject*) {
+    createQuickPopup(
+        "Discord",
+        "Join official <cb>Discord</c> server?",
+        "Cancel", "OK",
+        [this](bool, bool btn2) {
+            if (btn2) web::openLinkInBrowser("https://discord.com/invite/geometrydash");
+        }, true
+    );
+};
 
-void SocialsPopup::onWebsite(CCObject*) {};
+void SocialsPopup::onWebsite(CCObject*) {
+    createQuickPopup(
+        "RobTop Games",
+        "Visit <cs>RobTop Games</c> website?",
+        "Cancel", "OK",
+        [this](bool, bool btn2) {
+            if (btn2) web::openLinkInBrowser("https://www.robtopgames.com/");
+        }, true
+    );
+};
 
 SocialsPopup* SocialsPopup::create() {
     auto ret = new SocialsPopup();
