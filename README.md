@@ -16,6 +16,10 @@ This mod improves RobTop's social media UI on the main menu by moving all of the
 
 ---
 
+![preview](previews/preview-1.png)
+
+---
+
 ### Changelog
 ###### What's new?!
 **[📜 View the latest updates and patches](./changelog.md)**
