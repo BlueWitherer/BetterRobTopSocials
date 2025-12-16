@@ -8,9 +8,11 @@ bool SocialsPopup::setup() {
     setID("popup"_spr);
     setTitle("Follow RobTop Games!");
 
+    addSideArt(m_mainLayer, SideArt::All, SideArtStyle::PopupBlue);
+
     auto bg = CCScale9Sprite::create("square02_001.png");
     bg->setAnchorPoint({ 0.5, 0.5 });
-    bg->setContentSize({ 250.f, 62.5f });
+    bg->setContentSize({ 235.f, 62.5f });
     bg->setPosition({ m_mainLayer->getScaledContentWidth() / 2.f, (m_mainLayer->getScaledContentHeight() / 2.f) * 0.875f });
     bg->setOpacity(50);
 
@@ -93,7 +95,7 @@ bool SocialsPopup::setup() {
         this,
         menu_selector(SocialsPopup::onWebsite)
     );
-    robBtn->setID("robtop-button");
+    robBtn->setID("robtop-games-button");
     robBtn->setPosition({ bg->getPositionX(), 0.f });
 
     m_buttonMenu->addChild(robBtn);
@@ -180,7 +182,7 @@ void SocialsPopup::onWebsite(CCObject*) {
 
 SocialsPopup* SocialsPopup::create() {
     auto ret = new SocialsPopup();
-    if (ret->initAnchored(275.f, 125.f)) {
+    if (ret->initAnchored(275.f, 135.f)) {
         ret->autorelease();
         return ret;
     };

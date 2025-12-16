@@ -10,14 +10,33 @@ class $modify(SocialsMenuLayer, MenuLayer) {
     bool init() {
         if (!MenuLayer::init()) return false;
 
-        if (auto socialMediaMenu = getChildByID("social-media-menu")) { // hide these buttons
-            if (auto fb = socialMediaMenu->getChildByID("facebook-button")) fb->setVisible(false);
-            if (auto twt = socialMediaMenu->getChildByID("twitter-button")) twt->setVisible(false);
-            if (auto yt = socialMediaMenu->getChildByID("youtube-button")) yt->setVisible(false);
-            if (auto tw = socialMediaMenu->getChildByID("twitch-button")) tw->setVisible(false);
-            if (auto dc = socialMediaMenu->getChildByID("discord-button")) dc->setVisible(false);
+        if (auto socialMenu = getChildByID("social-media-menu")) { // hide these buttons
+            socialMenu->setVisible(false);
 
-            socialMediaMenu->setPositionY(33.f);
+            auto layout = RowLayout::create()
+                ->setAutoGrowAxis(0.f);
+
+            auto newSocialMenu = CCMenu::create();
+            newSocialMenu->setID("menu"_spr);
+            newSocialMenu->setAnchorPoint({ 0, 0.5 });
+            newSocialMenu->setContentSize({ 0.f, 0.f });
+            newSocialMenu->setPosition({ 13.f, 45.f });
+            newSocialMenu->setLayout(layout);
+
+            auto robtopBtnSprite = CCSprite::createWithSpriteFrameName("robtoplogo_small.png");
+            robtopBtnSprite->setScale(0.875f);
+
+            auto robtopBtn = CCMenuItemSpriteExtra::create(
+                robtopBtnSprite,
+                this,
+                menu_selector(SocialsMenuLayer::onSocials)
+            );
+            robtopBtn->setID("social-media-button");
+
+            newSocialMenu->addChild(robtopBtn);
+            newSocialMenu->updateLayout(true);
+
+            addChild(newSocialMenu);
         } else {
             log::error("Couldn't find social media menu");
         };
@@ -25,8 +44,7 @@ class $modify(SocialsMenuLayer, MenuLayer) {
         return true;
     };
 
-    void onRobTop(CCObject * sender) {
+    void onSocials(CCObject*) {
         if (auto popup = SocialsPopup::create()) return popup->show();
-        MenuLayer::onRobTop(sender);
     };
 };
