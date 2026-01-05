@@ -23,11 +23,8 @@ class $modify(SocialsMenuLayer, MenuLayer) {
             newSocialMenu->setPosition({ 13.f, 45.f });
             newSocialMenu->setLayout(layout);
 
-            auto robtopBtnSprite = CCSprite::createWithSpriteFrameName("robtoplogo_small.png");
-            robtopBtnSprite->setScale(0.875f);
-
             auto robtopBtn = CCMenuItemSpriteExtra::create(
-                robtopBtnSprite,
+                CCSprite::createWithSpriteFrameName("robtoplogo_small.png"),
                 this,
                 menu_selector(SocialsMenuLayer::onSocials)
             );
