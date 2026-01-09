@@ -32,61 +32,26 @@ bool SocialsPopup::setup() {
 
     m_mainLayer->addChild(menu);
 
-    auto fbBtn = CCMenuItemSpriteExtra::create(
-        CCSprite::createWithSpriteFrameName("gj_fbIcon_001.png"),
-        this,
-        menu_selector(SocialsPopup::onFacebook)
-    );
-    fbBtn->setID("facebook-button");
+    std::vector<SocialItem> btns = {
+        { "gj_fbIcon_001.png", "facebook-btn", menu_selector(SocialsPopup::onFacebook) },
+        { "gj_twIcon_001.png", "twitter-btn", menu_selector(SocialsPopup::onTwitter) },
+        { "gj_ytIcon_001.png", "youtube-btn", menu_selector(SocialsPopup::onYouTube) },
+        { "gj_twitchIcon_001.png", "twitch-btn", menu_selector(SocialsPopup::onTwitch) },
+        { "gj_discordIcon_001.png", "discord-btn", menu_selector(SocialsPopup::onDiscord) },
+        { "gj_rdIcon_001.png", "reddit-btn", menu_selector(SocialsPopup::onReddit) },
+    };
 
-    menu->addChild(fbBtn);
+    for (auto const& b : btns) {
+        auto btn = CCMenuItemSpriteExtra::create(
+            CCSprite::createWithSpriteFrameName(b.sprite.c_str()),
+            this,
+            b.selector
+        );
+        btn->setID(b.id);
 
-    auto twtBtn = CCMenuItemSpriteExtra::create(
-        CCSprite::createWithSpriteFrameName("gj_twIcon_001.png"),
-        this,
-        menu_selector(SocialsPopup::onTwitter)
-    );
-    twtBtn->setID("twitter-button");
-
-    menu->addChild(twtBtn);
-
-    auto ytBtn = CCMenuItemSpriteExtra::create(
-        CCSprite::createWithSpriteFrameName("gj_ytIcon_001.png"),
-        this,
-        menu_selector(SocialsPopup::onYouTube)
-    );
-    ytBtn->setID("youtube-button");
-
-    menu->addChild(ytBtn);
-
-    auto twBtn = CCMenuItemSpriteExtra::create(
-        CCSprite::createWithSpriteFrameName("gj_twitchIcon_001.png"),
-        this,
-        menu_selector(SocialsPopup::onTwitch)
-    );
-    twBtn->setID("twitch-button");
-
-    menu->addChild(twBtn);
-
-    auto dcBtn = CCMenuItemSpriteExtra::create(
-        CCSprite::createWithSpriteFrameName("gj_discordIcon_001.png"),
-        this,
-        menu_selector(SocialsPopup::onDiscord)
-    );
-    dcBtn->setID("discord-button");
-
-    menu->addChild(dcBtn);
-
-    menu->updateLayout(true);
-
-    auto rdBtn = CCMenuItemSpriteExtra::create(
-        CCSprite::createWithSpriteFrameName("gj_rdIcon_001.png"),
-        this,
-        menu_selector(SocialsPopup::onReddit)
-    );
-    rdBtn->setID("reddit-button");
-
-    menu->addChild(rdBtn);
+        menu->addChild(btn);
+    };
+    btns.clear();
 
     menu->updateLayout(true);
 
@@ -95,7 +60,7 @@ bool SocialsPopup::setup() {
         this,
         menu_selector(SocialsPopup::onWebsite)
     );
-    robBtn->setID("robtop-games-button");
+    robBtn->setID("robtop-games-btn");
     robBtn->setPosition({ bg->getPositionX(), 0.f });
 
     m_buttonMenu->addChild(robBtn);
@@ -182,7 +147,7 @@ void SocialsPopup::onWebsite(CCObject*) {
 
 SocialsPopup* SocialsPopup::create() {
     auto ret = new SocialsPopup();
-    if (ret->initAnchored(275.f, 140.f)) {
+    if (ret->initAnchored(275.f, 135.f)) {
         ret->autorelease();
         return ret;
     };
