@@ -32,7 +32,7 @@ bool SocialsPopup::setup() {
 
     m_mainLayer->addChild(menu);
 
-    std::vector<SocialItem> btns = {
+    constexpr SocialItem btns[] = {
         { "gj_fbIcon_001.png", "facebook-btn", menu_selector(SocialsPopup::onFacebook) },
         { "gj_twIcon_001.png", "twitter-btn", menu_selector(SocialsPopup::onTwitter) },
         { "gj_ytIcon_001.png", "youtube-btn", menu_selector(SocialsPopup::onYouTube) },
@@ -43,7 +43,7 @@ bool SocialsPopup::setup() {
 
     for (auto const& b : btns) {
         auto btn = CCMenuItemSpriteExtra::create(
-            CCSprite::createWithSpriteFrameName(b.sprite.c_str()),
+            CCSprite::createWithSpriteFrameName(b.sprite),
             this,
             b.selector
         );
@@ -51,7 +51,6 @@ bool SocialsPopup::setup() {
 
         menu->addChild(btn);
     };
-    btns.clear();
 
     menu->updateLayout(true);
 
