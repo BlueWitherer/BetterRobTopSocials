@@ -10,8 +10,11 @@ class $modify(SocialsMenuLayer, MenuLayer) {
     bool init() {
         if (!MenuLayer::init()) return false;
 
+        log::debug("Searching for default social media menu...");
         if (auto socialMenu = getChildByID("social-media-menu")) { // hide these buttons
             socialMenu->setVisible(false);
+
+            log::debug("Default social media menu found");
 
             auto layout = RowLayout::create()
                 ->setAutoGrowAxis(0.f);
@@ -28,12 +31,14 @@ class $modify(SocialsMenuLayer, MenuLayer) {
                 this,
                 menu_selector(SocialsMenuLayer::onSocials)
             );
-            robtopBtn->setID("social-media-button");
+            robtopBtn->setID("social-media-btn");
 
             newSocialMenu->addChild(robtopBtn);
             newSocialMenu->updateLayout(true);
 
             addChild(newSocialMenu);
+
+            log::info("Set up new social media menu");
         } else {
             log::error("Couldn't find social media menu");
         };
