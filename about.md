@@ -1,4 +1,4 @@
-# Clean RobTop Socials
+# Clean ![RobTop](frame:robtoplogo_small.png?scale=0.75) Socials
 **Clean up RobTop's social media menu!**
 
 *by [Cheeseworks](user:6408873)!*
