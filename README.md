@@ -1,5 +1,5 @@
-# [<img src="logo.png" width="25" alt="The mod's logo." />](https://www.geode-sdk.org/mods/cheeseworks.betterrobtopsocials) Better RobTop Socials
-Improve the social buttons on the main menu.
+# [<img src="logo.png" width="25" alt="The mod's logo." />](https://www.geode-sdk.org/mods/cheeseworks.betterrobtopsocials) Clean RobTop Socials
+Clean up RobTop's social media menu!
 
 ---
 

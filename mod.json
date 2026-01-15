@@ -7,12 +7,12 @@
         "ios": "2.2074"
     },
     "id": "cheeseworks.betterrobtopsocials",
-    "name": "Better RobTop Socials",
-    "version": "1.0.2",
+    "name": "Clean RobTop Socials",
+    "version": "1.0.3",
     "developers": [
         "Cheeseworks"
     ],
-    "description": "Improve the social buttons on the main menu.",
+    "description": "Clean up RobTop's social media menu!",
     "tags": [
         "offline",
         "enhancement"

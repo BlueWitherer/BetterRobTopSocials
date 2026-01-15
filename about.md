@@ -1,5 +1,5 @@
-# Better RobTop Socials
-**Improve the social buttons on the main menu.**
+# Clean RobTop Socials
+**Clean up RobTop's social media menu!**
 
 *by [Cheeseworks](user:6408873)!*
 
