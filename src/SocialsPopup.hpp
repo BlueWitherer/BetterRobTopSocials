@@ -4,20 +4,15 @@ using namespace geode::prelude;
 
 class SocialsPopup : public Popup<> {
 private:
+    using Callback = void(*)(CCMenuItem*);
+    
     struct SocialItem {
         const char* sprite;
         const char* id;
-        SEL_MenuHandler selector;
+        Callback callback;
     };
 
 protected:
-    void onFacebook(CCObject*);
-    void onTwitter(CCObject*);
-    void onYouTube(CCObject*);
-    void onTwitch(CCObject*);
-    void onDiscord(CCObject*);
-    void onReddit(CCObject*);
-
     void onWebsite(CCObject*);
 
     bool setup() override;
