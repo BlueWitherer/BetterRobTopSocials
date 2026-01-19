@@ -12,8 +12,6 @@ class $modify(SocialsMenuLayer, MenuLayer) {
 
         log::debug("Searching for default social media menu...");
         if (auto socialMenu = getChildByID("social-media-menu")) { // hide these buttons
-            socialMenu->setVisible(false);
-
             log::debug("Default social media menu found");
 
             auto layout = RowLayout::create()
@@ -34,8 +32,9 @@ class $modify(SocialsMenuLayer, MenuLayer) {
             robtopBtn->setID("social-media-btn");
 
             newSocialMenu->addChild(robtopBtn);
-            newSocialMenu->updateLayout(true);
+            newSocialMenu->updateLayout();
 
+            socialMenu->setVisible(false);
             addChild(newSocialMenu);
 
             log::info("Set up new social media menu");

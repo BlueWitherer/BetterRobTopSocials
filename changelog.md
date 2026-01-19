@@ -1,5 +1,5 @@
-# v1.0.3
-- Mod metadata updated
+# v1.0.3 
+- Internal optimizations
 
 # v1.0.2
 - Minor optimization
