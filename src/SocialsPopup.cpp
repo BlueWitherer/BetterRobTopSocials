@@ -43,7 +43,7 @@ bool SocialsPopup::setup() {
                     "Cancel", "OK",
                     +[](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.facebook.com/geometrydash/");
-                    }, true
+                    }
                 );
             },
         },
@@ -52,12 +52,12 @@ bool SocialsPopup::setup() {
             "twitter-btn",
             +[](CCMenuItem*) {
                 createQuickPopup(
-                    "Facebook",
-                    "Visit official <cl>Facebook</c> page?",
+                    "Twitter",
+                    "Visit official <cj>Twitter</c> page?",
                     "Cancel", "OK",
                     +[](bool, bool ok) {
-                        if (ok) web::openLinkInBrowser("https://www.facebook.com/geometrydash/");
-                    }, true
+                        if (ok) web::openLinkInBrowser("https://www.twitter.com/robtopgames/");
+                    }
                 );
             },
         },
@@ -71,7 +71,7 @@ bool SocialsPopup::setup() {
                     "Cancel", "OK",
                     +[](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.youtube.com/@RobTopGames/");
-                    }, true
+                    }
                 );
             },
         },
@@ -85,7 +85,7 @@ bool SocialsPopup::setup() {
                     "Cancel", "OK",
                     +[](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.twitch.tv/directory/category/geometry-dash");
-                    }, true
+                    }
                 );
             },
          },
@@ -99,7 +99,7 @@ bool SocialsPopup::setup() {
                     "Cancel", "OK",
                     +[](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://discord.com/invite/geometrydash");
-                    }, true
+                    }
                 );
             },
         },
@@ -113,7 +113,7 @@ bool SocialsPopup::setup() {
                     "Cancel", "OK",
                     +[](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.reddit.com/r/geometrydash/");
-                    }, true
+                    }
                 );
             },
         },
@@ -151,7 +151,7 @@ void SocialsPopup::onWebsite(CCObject*) {
         "Cancel", "OK",
         +[](bool, bool ok) {
             if (ok) web::openLinkInBrowser("https://www.robtopgames.com/");
-        }, true
+        }
     );
 };
 
