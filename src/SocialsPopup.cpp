@@ -4,7 +4,9 @@
 
 using namespace geode::prelude;
 
-bool SocialsPopup::setup() {
+bool SocialsPopup::init() {
+    if (!Popup::init(275.f, 135.f)) return false;
+
     setID("popup"_spr);
     setTitle("Follow RobTop Games!");
 
@@ -157,11 +159,11 @@ void SocialsPopup::onWebsite(CCObject*) {
 
 SocialsPopup* SocialsPopup::create() {
     auto ret = new SocialsPopup();
-    if (ret->initAnchored(275.f, 135.f)) {
+    if (ret->init()) {
         ret->autorelease();
         return ret;
     };
 
-    CC_SAFE_DELETE(ret);
+    delete ret;
     return nullptr;
 };

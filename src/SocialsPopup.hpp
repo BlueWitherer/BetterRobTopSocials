@@ -2,10 +2,10 @@
 
 using namespace geode::prelude;
 
-class SocialsPopup : public Popup<> {
+class SocialsPopup : public Popup {
 private:
     using Callback = void(*)(CCMenuItem*);
-    
+
     struct SocialItem {
         const char* sprite;
         const char* id;
@@ -15,7 +15,7 @@ private:
 protected:
     void onWebsite(CCObject*);
 
-    bool setup() override;
+    bool init();
 
 public:
     static SocialsPopup* create();
