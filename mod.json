@@ -22,11 +22,5 @@
         "homepage": "https://www.cheeseworks.gay/",
         "community": "https://www.dsc.gg/cheeseworks"
     },
-    "dependencies": {
-        "geode.node-ids": {
-            "importance": "suggested",
-            "version": ">=1.21.0"
-        }
-    },
     "early-load": false
 }
