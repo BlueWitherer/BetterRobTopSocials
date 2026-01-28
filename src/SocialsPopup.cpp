@@ -5,7 +5,7 @@
 using namespace geode::prelude;
 
 bool SocialsPopup::init() {
-    if (!Popup::init(275.f, 135.f)) return false;
+    if (!Popup::init(275.f, 125.f)) return false;
 
     setID("popup"_spr);
     setTitle("Follow RobTop Games!");
@@ -14,7 +14,7 @@ bool SocialsPopup::init() {
 
     auto bg = CCScale9Sprite::create("square02_001.png");
     bg->setAnchorPoint({ 0.5, 0.5 });
-    bg->setContentSize({ 235.f, 62.5f });
+    bg->setContentSize({ m_mainLayer->getScaledContentWidth() - 40.f, 62.5f });
     bg->setPosition({ m_mainLayer->getScaledContentWidth() / 2.f, (m_mainLayer->getScaledContentHeight() / 2.f) * 0.875f });
     bg->setOpacity(50);
 
@@ -143,6 +143,19 @@ bool SocialsPopup::init() {
 
     m_buttonMenu->addChild(robBtn);
 
+    auto robProfileBtnSprite = CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png");
+    robProfileBtnSprite->setScale(0.5f);
+
+    auto robProfileBtn = CCMenuItemSpriteExtra::create(
+        robProfileBtnSprite,
+        this,
+        menu_selector(SocialsPopup::onProfile)
+    );
+    robProfileBtn->setID("robtop-profile-btn");
+    robProfileBtn->setPosition({ m_mainLayer->getScaledContentWidth() - 1.25f, 1.25f });
+
+    m_buttonMenu->addChild(robProfileBtn);
+
     return true;
 };
 
@@ -155,6 +168,10 @@ void SocialsPopup::onWebsite(CCObject*) {
             if (ok) web::openLinkInBrowser("https://www.robtopgames.com/");
         }
     );
+};
+
+void SocialsPopup::onProfile(CCObject*) {
+    if (auto profile = ProfilePage::create(71, false)) profile->show();
 };
 
 SocialsPopup* SocialsPopup::create() {
