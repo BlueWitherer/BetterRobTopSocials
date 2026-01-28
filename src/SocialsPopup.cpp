@@ -34,7 +34,7 @@ bool SocialsPopup::init() {
 
     m_mainLayer->addChild(menu);
 
-    constexpr SocialItem btns[] = {
+    static constexpr SocialItem btns[] = {
         {
             "gj_fbIcon_001.png",
             "facebook-btn",
