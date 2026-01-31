@@ -5,7 +5,7 @@
 using namespace geode::prelude;
 
 bool SocialsPopup::init() {
-    if (!Popup::init(275.f, 125.f)) return false;
+    if (!Popup::init(275.f, 130.f)) return false;
 
     setID("popup"_spr);
     setTitle("Follow RobTop Games!");
@@ -144,7 +144,7 @@ bool SocialsPopup::init() {
     m_buttonMenu->addChild(robBtn);
 
     auto robProfileBtnSprite = CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png");
-    robProfileBtnSprite->setScale(0.5f);
+    robProfileBtnSprite->setScale(0.375f);
 
     auto robProfileBtn = CCMenuItemSpriteExtra::create(
         robProfileBtnSprite,
