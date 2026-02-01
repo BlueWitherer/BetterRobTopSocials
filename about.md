@@ -6,7 +6,7 @@
 ---
 
 ## About
-This mod improves RobTop's social media UI on the main menu by moving all of the social media buttons into a special pop-up that can be accessed by clicking the brand-new RobTop button in the bottom-left corner.
+This mod improves RobTop's social media UI on the main menu by moving all of Rob's social media buttons into a special pop-up that can be accessed by clicking the brand-new RobTop button in the bottom-left corner.
 
 ---
 
