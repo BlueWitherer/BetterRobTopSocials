@@ -24,10 +24,11 @@ class $modify(SocialsMenuLayer, MenuLayer) {
             newSocialMenu->setPosition({ 13.f, 45.f });
             newSocialMenu->setLayout(layout);
 
-            auto robtopBtn = CCMenuItemSpriteExtra::create(
+            auto robtopBtn = CCMenuItemExt::createSpriteExtra(
                 CCSprite::createWithSpriteFrameName("robtoplogo_small.png"),
-                this,
-                menu_selector(SocialsMenuLayer::onSocials)
+                [](auto) {
+                    if (auto popup = SocialsPopup::create()) return popup->show();
+                }
             );
             robtopBtn->setID("social-media-btn");
 
@@ -43,9 +44,5 @@ class $modify(SocialsMenuLayer, MenuLayer) {
         };
 
         return true;
-    };
-
-    void onSocials(CCObject*) {
-        if (auto popup = SocialsPopup::create()) return popup->show();
     };
 };
