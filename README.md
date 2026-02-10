@@ -12,7 +12,12 @@ Clean up RobTop's social media menu!
 ---
 
 ## About
-This mod improves RobTop's social media UI on the main menu by moving all of Rob's social media buttons into a special pop-up that can be accessed by clicking the brand-new RobTop button in the bottom-left corner.
+This mod improves RobTop's social media UI on the main menu by moving all of Rob's social media buttons into a special pop-up.
+
+---
+
+### Use?
+You can now stop misclicking those ole' buttons! Open the pop-up by clicking the new "RobTop" button in that same corner. Clicking each social icon in the pop-up will also open a confirmation pop-up asking if you want to proceed.
 
 ---
 

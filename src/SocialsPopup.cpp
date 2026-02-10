@@ -133,10 +133,18 @@ bool SocialsPopup::init() {
 
     menu->updateLayout();
 
-    auto robBtn = CCMenuItemSpriteExtra::create(
+    auto robBtn = CCMenuItemExt::createSpriteExtra(
         CCSprite::createWithSpriteFrameName("robtoplogo_small.png"),
-        this,
-        menu_selector(SocialsPopup::onWebsite)
+        [](auto) {
+            createQuickPopup(
+                "RobTop Games",
+                "Visit <cs>RobTop Games</c> website?",
+                "Cancel", "OK",
+                +[](bool, bool ok) {
+                    if (ok) web::openLinkInBrowser("https://www.robtopgames.com/");
+                }
+            );
+        }
     );
     robBtn->setID("robtop-games-btn");
     robBtn->setPosition({ bg->getPositionX(), 0.f });
@@ -146,10 +154,11 @@ bool SocialsPopup::init() {
     auto robProfileBtnSprite = CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png");
     robProfileBtnSprite->setScale(0.375f);
 
-    auto robProfileBtn = CCMenuItemSpriteExtra::create(
+    auto robProfileBtn = CCMenuItemExt::createSpriteExtra(
         robProfileBtnSprite,
-        this,
-        menu_selector(SocialsPopup::onProfile)
+        [](auto) {
+            if (auto profile = ProfilePage::create(71, false)) profile->show();
+        }
     );
     robProfileBtn->setID("robtop-profile-btn");
     robProfileBtn->setPosition({ m_mainLayer->getScaledContentWidth() - 1.25f, 1.25f });
@@ -157,21 +166,6 @@ bool SocialsPopup::init() {
     m_buttonMenu->addChild(robProfileBtn);
 
     return true;
-};
-
-void SocialsPopup::onWebsite(CCObject*) {
-    createQuickPopup(
-        "RobTop Games",
-        "Visit <cs>RobTop Games</c> website?",
-        "Cancel", "OK",
-        +[](bool, bool ok) {
-            if (ok) web::openLinkInBrowser("https://www.robtopgames.com/");
-        }
-    );
-};
-
-void SocialsPopup::onProfile(CCObject*) {
-    if (auto profile = ProfilePage::create(71, false)) profile->show();
 };
 
 SocialsPopup* SocialsPopup::create() {

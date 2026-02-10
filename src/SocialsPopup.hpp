@@ -13,9 +13,6 @@ private:
     };
 
 protected:
-    void onWebsite(CCObject*);
-    void onProfile(CCObject*);
-
     bool init();
 
 public:
