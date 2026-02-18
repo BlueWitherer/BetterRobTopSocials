@@ -149,10 +149,10 @@ bool SocialsPopup::init() {
     robBtn->setID("robtop-games-btn");
     robBtn->setPosition({ bg->getPositionX(), 0.f });
 
-    m_buttonMenu->addChild(robBtn);
+    m_buttonMenu->addChild(robBtn, 1);
 
     auto robProfileBtnSprite = CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png");
-    robProfileBtnSprite->setScale(0.375f);
+    robProfileBtnSprite->setScale(0.5f);
 
     auto robProfileBtn = CCMenuItemExt::createSpriteExtra(
         robProfileBtnSprite,
@@ -161,9 +161,9 @@ bool SocialsPopup::init() {
         }
     );
     robProfileBtn->setID("robtop-profile-btn");
-    robProfileBtn->setPosition({ m_mainLayer->getScaledContentWidth() - 1.25f, 1.25f });
+    robProfileBtn->setPosition({ m_mainLayer->getScaledContentWidth() - 17.5f, 17.5f });
 
-    m_buttonMenu->addChild(robProfileBtn);
+    m_buttonMenu->addChild(robProfileBtn, 9);
 
     return true;
 };
