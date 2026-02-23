@@ -24,7 +24,7 @@ class $modify(SocialsMenuLayer, MenuLayer) {
             newSocialMenu->setPosition({ 13.f, 45.f });
             newSocialMenu->setLayout(layout);
 
-            auto robtopBtn = CCMenuItemExt::createSpriteExtra(
+            auto robtopBtn = Button::createWithNode(
                 CCSprite::createWithSpriteFrameName("robtoplogo_small.png"),
                 [](auto) {
                     if (auto popup = SocialsPopup::create()) return popup->show();

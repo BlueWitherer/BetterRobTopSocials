@@ -34,16 +34,16 @@ bool SocialsPopup::init() {
 
     m_mainLayer->addChild(menu);
 
-    static constexpr SocialItem btns[] = {
+    auto btns = std::to_array<SocialItem>({
         {
             "gj_fbIcon_001.png",
             "facebook-btn",
-            +[](CCMenuItem*) {
+            [](auto) {
                 createQuickPopup(
                     "Facebook",
                     "Visit official <cl>Facebook</c> page?",
                     "Cancel", "OK",
-                    +[](bool, bool ok) {
+                    [](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.facebook.com/geometrydash/");
                     }
                 );
@@ -52,12 +52,12 @@ bool SocialsPopup::init() {
         {
             "gj_twIcon_001.png",
             "twitter-btn",
-            +[](CCMenuItem*) {
+            [](auto) {
                 createQuickPopup(
                     "Twitter",
                     "Visit official <cj>Twitter</c> page?",
                     "Cancel", "OK",
-                    +[](bool, bool ok) {
+                    [](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.twitter.com/robtopgames/");
                     }
                 );
@@ -66,12 +66,12 @@ bool SocialsPopup::init() {
         {
             "gj_ytIcon_001.png",
             "youtube-btn",
-            +[](CCMenuItem*) {
+            [](auto) {
                 createQuickPopup(
                     "YouTube",
                     "Visit official <cr>YouTube</c> channel?",
                     "Cancel", "OK",
-                    +[](bool, bool ok) {
+                    [](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.youtube.com/@RobTopGames/");
                     }
                 );
@@ -80,12 +80,12 @@ bool SocialsPopup::init() {
         {
             "gj_twitchIcon_001.png",
             "twitch-btn",
-            +[](CCMenuItem*) {
+            [](auto) {
                 createQuickPopup(
                     "Twitch",
                     "Visit <ca>Twitch</c> game category page?",
                     "Cancel", "OK",
-                    +[](bool, bool ok) {
+                    [](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.twitch.tv/directory/category/geometry-dash");
                     }
                 );
@@ -94,12 +94,12 @@ bool SocialsPopup::init() {
         {
             "gj_discordIcon_001.png",
             "discord-btn",
-            +[](CCMenuItem*) {
+            [](auto) {
                 createQuickPopup(
                     "Discord",
                     "Join official <cb>Discord</c> server?",
                     "Cancel", "OK",
-                    +[](bool, bool ok) {
+                    [](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://discord.com/invite/geometrydash");
                     }
                 );
@@ -108,23 +108,23 @@ bool SocialsPopup::init() {
         {
             "gj_rdIcon_001.png",
             "reddit-btn",
-            +[](CCMenuItem*) {
+            [](auto) {
                 createQuickPopup(
                     "Reddit",
                     "Join official <co>Reddit</c> community?",
                     "Cancel", "OK",
-                    +[](bool, bool ok) {
+                    [](bool, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.reddit.com/r/geometrydash/");
                     }
                 );
             },
         },
-    };
+                                          });
 
-    for (auto const& b : btns) {
-        auto btn = CCMenuItemExt::createSpriteExtra(
+    for (auto& b : btns) {
+        auto btn = Button::createWithNode(
             CCSprite::createWithSpriteFrameName(b.sprite),
-            b.callback
+            std::move(b.callback)
         );
         btn->setID(b.id);
 
@@ -133,14 +133,14 @@ bool SocialsPopup::init() {
 
     menu->updateLayout();
 
-    auto robBtn = CCMenuItemExt::createSpriteExtra(
+    auto robBtn = Button::createWithNode(
         CCSprite::createWithSpriteFrameName("robtoplogo_small.png"),
         [](auto) {
             createQuickPopup(
                 "RobTop Games",
                 "Visit <cs>RobTop Games</c> website?",
                 "Cancel", "OK",
-                +[](bool, bool ok) {
+                [](bool, bool ok) {
                     if (ok) web::openLinkInBrowser("https://www.robtopgames.com/");
                 }
             );
@@ -154,7 +154,7 @@ bool SocialsPopup::init() {
     auto robProfileBtnSprite = CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png");
     robProfileBtnSprite->setScale(0.5f);
 
-    auto robProfileBtn = CCMenuItemExt::createSpriteExtra(
+    auto robProfileBtn = Button::createWithNode(
         robProfileBtnSprite,
         [](auto) {
             if (auto profile = ProfilePage::create(71, false)) profile->show();

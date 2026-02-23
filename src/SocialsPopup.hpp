@@ -1,15 +1,15 @@
 #include <Geode/Geode.hpp>
 
+#include <Geode/ui/Button.hpp>
+
 using namespace geode::prelude;
 
-class SocialsPopup : public Popup {
+class SocialsPopup final : public Popup {
 private:
-    using Callback = void(*)(CCMenuItem*);
-
-    struct SocialItem {
+    struct SocialItem final {
         const char* sprite;
         const char* id;
-        Callback callback;
+        Button::ButtonCallback callback;
     };
 
 protected:
