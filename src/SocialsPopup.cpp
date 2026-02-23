@@ -12,7 +12,7 @@ bool SocialsPopup::init() {
 
     addSideArt(m_mainLayer, SideArt::All, SideArtStyle::PopupBlue);
 
-    auto bg = CCScale9Sprite::create("square02_001.png");
+    auto bg = NineSlice::create("square02_001.png");
     bg->setAnchorPoint({ 0.5, 0.5 });
     bg->setContentSize({ m_mainLayer->getScaledContentWidth() - 40.f, 62.5f });
     bg->setPosition({ m_mainLayer->getScaledContentWidth() / 2.f, (m_mainLayer->getScaledContentHeight() / 2.f) * 0.875f });
