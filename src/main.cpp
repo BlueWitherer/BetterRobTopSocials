@@ -17,7 +17,7 @@ class $modify(SocialsMenuLayer, MenuLayer) {
             auto layout = RowLayout::create()
                 ->setAutoGrowAxis(0.f);
 
-            auto newSocialMenu = CCMenu::create();
+            auto newSocialMenu = CCNode::create();
             newSocialMenu->setID("menu"_spr);
             newSocialMenu->setAnchorPoint({ 0, 0.5 });
             newSocialMenu->setContentSize({ 0.f, 0.f });

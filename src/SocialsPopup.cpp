@@ -16,7 +16,7 @@ bool SocialsPopup::init() {
     bg->setAnchorPoint({ 0.5, 0.5 });
     bg->setContentSize({ m_mainLayer->getScaledContentWidth() - 40.f, 62.5f });
     bg->setPosition({ m_mainLayer->getScaledContentWidth() / 2.f, (m_mainLayer->getScaledContentHeight() / 2.f) * 0.875f });
-    bg->setOpacity(50);
+    bg->setOpacity(100);
 
     m_mainLayer->addChild(bg);
 
@@ -25,8 +25,8 @@ bool SocialsPopup::init() {
         ->setAxisAlignment(AxisAlignment::Center)
         ->setAutoScale(true);
 
-    auto menu = CCMenu::create();
-    menu->setID("socials-menu");
+    auto menu = CCNode::create();
+    menu->setID("socials-container");
     menu->setAnchorPoint(bg->getAnchorPoint());
     menu->setContentSize({ bg->getScaledContentWidth() - 8.75f, bg->getScaledContentHeight() - 8.75f });
     menu->setPosition(bg->getPosition());
@@ -149,7 +149,7 @@ bool SocialsPopup::init() {
     robBtn->setID("robtop-games-btn");
     robBtn->setPosition({ bg->getPositionX(), 0.f });
 
-    m_buttonMenu->addChild(robBtn, 1);
+    m_mainLayer->addChild(robBtn, 1);
 
     auto robProfileBtnSprite = CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png");
     robProfileBtnSprite->setScale(0.5f);
@@ -163,7 +163,7 @@ bool SocialsPopup::init() {
     robProfileBtn->setID("robtop-profile-btn");
     robProfileBtn->setPosition({ m_mainLayer->getScaledContentWidth() - 17.5f, 17.5f });
 
-    m_buttonMenu->addChild(robProfileBtn, 9);
+    m_mainLayer->addChild(robProfileBtn, 9);
 
     return true;
 };
