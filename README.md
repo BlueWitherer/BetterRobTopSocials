@@ -17,7 +17,7 @@ This mod improves RobTop's social media UI on the main menu by moving all of Rob
 ---
 
 ### Use?
-You can now stop misclicking those ole' buttons! Open the pop-up by clicking the new "RobTop" button in that same corner. Clicking each social icon in the pop-up will also open a confirmation pop-up asking if you want to proceed.
+You can now stop misclicking those heckin' buttons! Open the pop-up by pressing the new "RobTop" button in that same corner. Pressing each social button in the pop-up will also open a confirmation pop-up asking if you want to proceed.
 
 ---
 

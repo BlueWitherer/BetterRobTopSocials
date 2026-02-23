@@ -43,7 +43,7 @@ bool SocialsPopup::init() {
                     "Facebook",
                     "Visit official <cl>Facebook</c> page?",
                     "Cancel", "OK",
-                    [](bool, bool ok) {
+                    [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.facebook.com/geometrydash/");
                     }
                 );
@@ -57,7 +57,7 @@ bool SocialsPopup::init() {
                     "Twitter",
                     "Visit official <cj>Twitter</c> page?",
                     "Cancel", "OK",
-                    [](bool, bool ok) {
+                    [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.twitter.com/robtopgames/");
                     }
                 );
@@ -71,7 +71,7 @@ bool SocialsPopup::init() {
                     "YouTube",
                     "Visit official <cr>YouTube</c> channel?",
                     "Cancel", "OK",
-                    [](bool, bool ok) {
+                    [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.youtube.com/@RobTopGames/");
                     }
                 );
@@ -85,7 +85,7 @@ bool SocialsPopup::init() {
                     "Twitch",
                     "Visit <ca>Twitch</c> game category page?",
                     "Cancel", "OK",
-                    [](bool, bool ok) {
+                    [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.twitch.tv/directory/category/geometry-dash");
                     }
                 );
@@ -99,7 +99,7 @@ bool SocialsPopup::init() {
                     "Discord",
                     "Join official <cb>Discord</c> server?",
                     "Cancel", "OK",
-                    [](bool, bool ok) {
+                    [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://discord.com/invite/geometrydash");
                     }
                 );
@@ -113,7 +113,7 @@ bool SocialsPopup::init() {
                     "Reddit",
                     "Join official <co>Reddit</c> community?",
                     "Cancel", "OK",
-                    [](bool, bool ok) {
+                    [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.reddit.com/r/geometrydash/");
                     }
                 );
@@ -140,7 +140,7 @@ bool SocialsPopup::init() {
                 "RobTop Games",
                 "Visit <cs>RobTop Games</c> website?",
                 "Cancel", "OK",
-                [](bool, bool ok) {
+                [](auto, bool ok) {
                     if (ok) web::openLinkInBrowser("https://www.robtopgames.com/");
                 }
             );
