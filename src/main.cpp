@@ -6,7 +6,7 @@
 
 using namespace geode::prelude;
 
-class $modify(SocialsMenuLayer, MenuLayer) {
+class $modify(SocialsContainerLayer, MenuLayer) {
     static void onModify(auto& self) {
         (void)self.setHookPriorityPost("MenuLayer::init", Priority::Last);
     };
@@ -22,13 +22,13 @@ class $modify(SocialsMenuLayer, MenuLayer) {
             auto layout = RowLayout::create()
                               ->setAutoGrowAxis(0.f);
 
-            auto newSocialMenu = CCNode::create();
-            newSocialMenu->setID("menu"_spr);
-            newSocialMenu->setAnchorPoint({0, 0.5});
-            newSocialMenu->setContentSize({0.f, 0.f});
-            newSocialMenu->setPosition({13.f, 45.f});
-            newSocialMenu->setVisible(socialMenu->isVisible());
-            newSocialMenu->setLayout(layout);
+            auto newSocialContainer = CCNode::create();
+            newSocialContainer->setID("container"_spr);
+            newSocialContainer->setAnchorPoint({0, 0.5});
+            newSocialContainer->setContentSize({0.f, 0.f});
+            newSocialContainer->setPosition({13.f, 45.f});
+            newSocialContainer->setVisible(socialMenu->isVisible());
+            newSocialContainer->setLayout(layout);
 
             auto robtopBtn = Button::createWithNode(
                 CCSprite::createWithSpriteFrameName("robtoplogo_small.png"),
@@ -37,12 +37,12 @@ class $modify(SocialsMenuLayer, MenuLayer) {
                 });
             robtopBtn->setID("social-media-btn");
 
-            newSocialMenu->addChild(robtopBtn);
-            newSocialMenu->updateLayout();
+            newSocialContainer->addChild(robtopBtn);
+            newSocialContainer->updateLayout();
 
             socialMenu->setVisible(false);
 
-            addChild(newSocialMenu, socialMenu->getZOrder());
+            addChild(newSocialContainer, socialMenu->getZOrder());
 
             log::info("Set up new social media menu");
         } else {

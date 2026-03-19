@@ -14,9 +14,9 @@ bool SocialsPopup::init() {
 
     auto bg = NineSlice::create("square02_001.png");
     bg->setAnchorPoint({0.5, 0.5});
-    bg->setContentSize({m_mainLayer->getScaledContentWidth() - 37.5f, 60.f});
+    bg->setContentSize({m_mainLayer->getScaledContentWidth() - 42.5f, 50.f});
     bg->setPosition({m_mainLayer->getScaledContentWidth() / 2.f, (m_mainLayer->getScaledContentHeight() / 2.f) * 0.875f});
-    bg->setOpacity(100);
+    bg->setOpacity(50);
 
     m_mainLayer->addChild(bg);
 
@@ -32,7 +32,7 @@ bool SocialsPopup::init() {
     container->setPosition(bg->getPosition());
     container->setLayout(layout);
 
-    m_mainLayer->addChild(container);
+    m_mainLayer->addChild(container, 1);
 
     auto btns = std::to_array<SocialItem>({
         {
