@@ -13,14 +13,15 @@
         "Cheeseworks"
     ],
     "description": "Clean up RobTop's social media menu!",
-    "tags": [
-        "offline",
-        "enhancement"
-    ],
     "links": {
         "source": "https://github.com/BlueWitherer/BetterRobTopSocials",
         "homepage": "https://www.cheeseworks.gay/",
         "community": "https://www.dsc.gg/cheeseworks"
     },
+    "tags": [
+        "offline",
+        "enhancement",
+        "interface"
+    ],
     "early-load": false
 }

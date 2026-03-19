@@ -13,26 +13,26 @@ bool SocialsPopup::init() {
     addSideArt(m_mainLayer, SideArt::All, SideArtStyle::PopupBlue);
 
     auto bg = NineSlice::create("square02_001.png");
-    bg->setAnchorPoint({ 0.5, 0.5 });
-    bg->setContentSize({ m_mainLayer->getScaledContentWidth() - 40.f, 62.5f });
-    bg->setPosition({ m_mainLayer->getScaledContentWidth() / 2.f, (m_mainLayer->getScaledContentHeight() / 2.f) * 0.875f });
+    bg->setAnchorPoint({0.5, 0.5});
+    bg->setContentSize({m_mainLayer->getScaledContentWidth() - 37.5f, 60.f});
+    bg->setPosition({m_mainLayer->getScaledContentWidth() / 2.f, (m_mainLayer->getScaledContentHeight() / 2.f) * 0.875f});
     bg->setOpacity(100);
 
     m_mainLayer->addChild(bg);
 
     auto layout = RowLayout::create()
-        ->setGap(5.f)
-        ->setAxisAlignment(AxisAlignment::Center)
-        ->setAutoScale(true);
+                      ->setGap(5.f)
+                      ->setAutoScale(true)
+                      ->setAxisAlignment(AxisAlignment::Center);
 
-    auto menu = CCNode::create();
-    menu->setID("socials-container");
-    menu->setAnchorPoint(bg->getAnchorPoint());
-    menu->setContentSize({ bg->getScaledContentWidth() - 8.75f, bg->getScaledContentHeight() - 8.75f });
-    menu->setPosition(bg->getPosition());
-    menu->setLayout(layout);
+    auto container = CCNode::create();
+    container->setID("socials-container");
+    container->setAnchorPoint(bg->getAnchorPoint());
+    container->setContentSize({bg->getScaledContentWidth() - 8.75f, bg->getScaledContentHeight() - 8.75f});
+    container->setPosition(bg->getPosition());
+    container->setLayout(layout);
 
-    m_mainLayer->addChild(menu);
+    m_mainLayer->addChild(container);
 
     auto btns = std::to_array<SocialItem>({
         {
@@ -42,11 +42,11 @@ bool SocialsPopup::init() {
                 createQuickPopup(
                     "Facebook",
                     "Visit official <cl>Facebook</c> page?",
-                    "Cancel", "OK",
+                    "Cancel",
+                    "OK",
                     [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.facebook.com/geometrydash/");
-                    }
-                );
+                    });
             },
         },
         {
@@ -56,11 +56,11 @@ bool SocialsPopup::init() {
                 createQuickPopup(
                     "Twitter",
                     "Visit official <cj>Twitter</c> page?",
-                    "Cancel", "OK",
+                    "Cancel",
+                    "OK",
                     [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.twitter.com/robtopgames/");
-                    }
-                );
+                    });
             },
         },
         {
@@ -70,11 +70,11 @@ bool SocialsPopup::init() {
                 createQuickPopup(
                     "YouTube",
                     "Visit official <cr>YouTube</c> channel?",
-                    "Cancel", "OK",
+                    "Cancel",
+                    "OK",
                     [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.youtube.com/@RobTopGames/");
-                    }
-                );
+                    });
             },
         },
         {
@@ -84,13 +84,13 @@ bool SocialsPopup::init() {
                 createQuickPopup(
                     "Twitch",
                     "Visit <ca>Twitch</c> game category page?",
-                    "Cancel", "OK",
+                    "Cancel",
+                    "OK",
                     [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.twitch.tv/directory/category/geometry-dash");
-                    }
-                );
+                    });
             },
-         },
+        },
         {
             "gj_discordIcon_001.png",
             "discord-btn",
@@ -98,11 +98,11 @@ bool SocialsPopup::init() {
                 createQuickPopup(
                     "Discord",
                     "Join official <cb>Discord</c> server?",
-                    "Cancel", "OK",
+                    "Cancel",
+                    "OK",
                     [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://discord.com/invite/geometrydash");
-                    }
-                );
+                    });
             },
         },
         {
@@ -112,42 +112,40 @@ bool SocialsPopup::init() {
                 createQuickPopup(
                     "Reddit",
                     "Join official <co>Reddit</c> community?",
-                    "Cancel", "OK",
+                    "Cancel",
+                    "OK",
                     [](auto, bool ok) {
                         if (ok) web::openLinkInBrowser("https://www.reddit.com/r/geometrydash/");
-                    }
-                );
+                    });
             },
         },
-                                          });
+    });
 
     for (auto& b : btns) {
-        auto btn = Button::createWithNode(
-            CCSprite::createWithSpriteFrameName(b.sprite),
-            std::move(b.callback)
-        );
+        auto btn = Button::createWithSpriteFrameName(
+            b.sprite,
+            std::move(b.callback));
         btn->setID(b.id);
 
-        menu->addChild(btn);
+        container->addChild(btn);
     };
 
-    menu->updateLayout();
+    container->updateLayout();
 
-    auto robBtn = Button::createWithNode(
-        CCSprite::createWithSpriteFrameName("robtoplogo_small.png"),
+    auto robBtn = Button::createWithSpriteFrameName(
+        "robtoplogo_small.png",
         [](auto) {
             createQuickPopup(
                 "RobTop Games",
                 "Visit <cs>RobTop Games</c> website?",
-                "Cancel", "OK",
+                "Cancel",
+                "OK",
                 [](auto, bool ok) {
                     if (ok) web::openLinkInBrowser("https://www.robtopgames.com/");
-                }
-            );
-        }
-    );
+                });
+        });
     robBtn->setID("robtop-games-btn");
-    robBtn->setPosition({ bg->getPositionX(), 0.f });
+    robBtn->setPosition({bg->getPositionX(), 0.f});
 
     m_mainLayer->addChild(robBtn, 1);
 
@@ -158,10 +156,9 @@ bool SocialsPopup::init() {
         robProfileBtnSprite,
         [](auto) {
             if (auto profile = ProfilePage::create(71, false)) profile->show();
-        }
-    );
+        });
     robProfileBtn->setID("robtop-profile-btn");
-    robProfileBtn->setPosition({ m_mainLayer->getScaledContentWidth() - 17.5f, 17.5f });
+    robProfileBtn->setPosition({m_mainLayer->getScaledContentWidth() - 17.5f, 17.5f});
 
     m_mainLayer->addChild(robProfileBtn, 9);
 

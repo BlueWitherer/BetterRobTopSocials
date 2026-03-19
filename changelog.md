@@ -1,5 +1,6 @@
 # v1.1.1 
-- Optimize UI structure
+- Improve inter-mod compatibility
+- Optimize socials pop-up UI structure
 
 # v1.1.0 
 - Ported to Geometry Dash version `2.2081`
