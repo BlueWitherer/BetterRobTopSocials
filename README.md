@@ -12,7 +12,7 @@ Clean up RobTop's social media menu!
 ---
 
 ## About
-This mod improves RobTop's social media UI on the main menu by moving all of Rob's social media buttons into a special pop-up.
+This mod improves RobTop's social media UI on the main menu by moving all of Rob's social media buttons into a special pop-up, and even adding some more useful links.
 
 ---
 

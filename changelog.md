@@ -1,5 +1,5 @@
 # v1.2.0 
-- Added button for [Geometry Dash Wiki](https://geometrydash.wiki.gg/) in socials pop-up
+- Added button for [Geometry Dash Wiki](https://geometrydash.wiki.gg/) to socials pop-up
 - Minor optimizations
 
 # v1.1.1 
