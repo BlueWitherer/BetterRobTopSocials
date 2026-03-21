@@ -149,15 +149,31 @@ bool SocialsPopup::init() {
 
     m_mainLayer->addChild(robBtn, 1);
 
-    auto robProfileBtnSprite = CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png");
-    robProfileBtnSprite->setScale(0.5f);
+    auto gdWikiBtn = Button::createWithSpriteFrameName(
+        "accountBtn_myLists_001.png",
+        [](auto) {
+            createQuickPopup(
+                "Geometry Dash Wiki",
+                "Visit official <cg>Geometry Dash Wiki</c>?",
+                "Cancel",
+                "OK",
+                [](auto, bool ok) {
+                    if (ok) web::openLinkInBrowser("https://geometrydash.wiki.gg/");
+                });
+        });
+    gdWikiBtn->setID("geometry-dash-wiki-btn");
+    gdWikiBtn->setScale(0.625f);
+    gdWikiBtn->setPosition({17.5f, 17.5f});
 
-    auto robProfileBtn = Button::createWithNode(
-        robProfileBtnSprite,
+    m_mainLayer->addChild(gdWikiBtn, 9);
+
+    auto robProfileBtn = Button::createWithSpriteFrameName(
+        "GJ_profileButton_001.png",
         [](auto) {
             if (auto profile = ProfilePage::create(71, false)) profile->show();
         });
     robProfileBtn->setID("robtop-profile-btn");
+    robProfileBtn->setScale(0.5f);
     robProfileBtn->setPosition({m_mainLayer->getScaledContentWidth() - 17.5f, 17.5f});
 
     m_mainLayer->addChild(robProfileBtn, 9);

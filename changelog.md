@@ -1,3 +1,7 @@
+# v1.2.0 
+- Added button for [Geometry Dash Wiki](https://geometrydash.wiki.gg/) in socials pop-up
+- Minor optimizations
+
 # v1.1.1 
 - Improve inter-mod compatibility
 - Optimize socials pop-up UI structure
