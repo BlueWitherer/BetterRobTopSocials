@@ -1,4 +1,4 @@
-#include "SocialsPopup.hpp"
+#include "SocialsPopup.h"
 
 #include <Geode/Geode.hpp>
 

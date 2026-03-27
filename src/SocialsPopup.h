@@ -2,14 +2,12 @@
 
 #include <Geode/ui/Button.hpp>
 
-using namespace geode::prelude;
-
-class SocialsPopup final : public Popup {
+class SocialsPopup final : public geode::Popup {
 private:
     struct SocialItem final {
         const char* sprite;
         const char* id;
-        Button::ButtonCallback callback;
+        geode::Button::ButtonCallback callback;
     };
 
 protected:
