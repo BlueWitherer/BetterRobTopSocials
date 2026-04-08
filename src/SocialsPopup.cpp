@@ -5,7 +5,7 @@
 using namespace geode::prelude;
 
 bool SocialsPopup::init() {
-    if (!Popup::init(275.f, 130.f)) return false;
+    if (!Popup::init(275.f, 135.f)) return false;
 
     setID("popup"_spr);
     setTitle("Follow RobTop Games!");
@@ -177,6 +177,26 @@ bool SocialsPopup::init() {
     robProfileBtn->setPosition({m_mainLayer->getScaledContentWidth() - 17.5f, 17.5f});
 
     m_mainLayer->addChild(robProfileBtn, 9);
+
+    auto gdSiteBtn = Button::createWithSpriteFrameName(
+        "GJ_backBtn_001.png",
+        [](auto) {
+            createQuickPopup(
+                "Geometry Dash Website",
+                "Visit official <cg>Geometry Dash</c> website?",
+                "Cancel",
+                "OK",
+                [](auto, bool ok) {
+                    if (ok) web::openLinkInBrowser("https://www.geometrydash.com/");
+                });
+        });
+    gdSiteBtn->setID("gd-website-btn");
+    gdSiteBtn->setScale(0.5f);
+    gdSiteBtn->setPosition(m_mainLayer->getScaledContentSize() - 17.5f);
+
+    if (auto spr = typeinfo_cast<CCSprite*>(gdSiteBtn->getDisplayNode())) spr->setFlipX(true);
+
+    m_mainLayer->addChild(gdSiteBtn, 9);
 
     return true;
 };

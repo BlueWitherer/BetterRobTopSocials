@@ -1,4 +1,4 @@
-# [<img src="logo.png" width="25" alt="The mod's logo." />](https://www.geode-sdk.org/mods/cheeseworks.betterrobtopsocials) Clean RobTop Socials
+# [<img src="logo.png" width="25" alt="The mod's logo." />](https://geode-sdk.org/mods/cheeseworks.betterrobtopsocials) Clean RobTop Socials
 Clean up RobTop's social media menu!
 
 ---
@@ -7,12 +7,12 @@ Clean up RobTop's social media menu!
 
 > [![Version](https://img.shields.io/github/v/release/BlueWitherer/BetterRobTopSocials?include_prereleases&sort=semver&display_name=release&style=for-the-badge&logo=github&logoColor=ffffff&label=Version)](../../releases/) [![License](https://img.shields.io/github/license/BlueWitherer/BetterRobTopSocials?style=for-the-badge&logo=gnu&logoColor=ffffff&label=License)](LICENSE.md)
 >  
-> [![Downloads](https://img.shields.io/github/downloads/BlueWitherer/BetterRobTopSocials/total?style=for-the-badge&logo=geode&logoColor=ffffff&label=Downloads)](https://www.geode-sdk.org/mods/cheeseworks.betterrobtopsocials)
+> [![Downloads](https://img.shields.io/github/downloads/BlueWitherer/BetterRobTopSocials/total?style=for-the-badge&logo=geode&logoColor=ffffff&label=Downloads)](https://geode-sdk.org/mods/cheeseworks.betterrobtopsocials)
 
 ---
 
 ## About
-This mod improves RobTop's social media UI on the main menu by moving all of Rob's social media buttons into a special pop-up, and even adding some more useful links.
+This mod improves RobTop's social media UI on the main menu by moving all of Rob's social media buttons into a special pop-up, and even adds some more potentially useful links.
 
 ---
 
