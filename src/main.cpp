@@ -17,36 +17,24 @@ class $modify(SocialsContainerLayer, MenuLayer) {
         log::trace("Searching for default social media menu...");
 
         if (auto socialMenu = getChildByID("social-media-menu")) {  // hide these buttons
-            log::debug("Default social media menu found");
+            log::trace("Default social media menu found");
 
-            auto layout = RowLayout::create()
-                              ->setAutoGrowAxis(0.f);
-
-            auto newSocialContainer = CCNode::create();
-            newSocialContainer->setID("container"_spr);
-            newSocialContainer->setAnchorPoint({0, 0.5});
-            newSocialContainer->setContentSize({0.f, 0.f});
-            newSocialContainer->setPosition({13.f, 45.f});
-            newSocialContainer->setVisible(socialMenu->isVisible());
-            newSocialContainer->setLayout(layout);
-
-            auto robtopBtn = Button::createWithNode(
-                CCSprite::createWithSpriteFrameName("robtoplogo_small.png"),
+            auto robtopBtn = Button::createWithSpriteFrameName(
+                "robtoplogo_small.png",
                 [](auto) {
                     if (auto popup = SocialsPopup::create()) return popup->show();
                 });
-            robtopBtn->setID("social-media-btn");
+            robtopBtn->setID("social-media-btn"_spr);
+            robtopBtn->setScale(0.875f);
+            robtopBtn->setPosition({(robtopBtn->getScaledContentWidth() / 2.f) + 13.f, 45.f});
+            robtopBtn->setVisible(socialMenu->isVisible());
 
-            newSocialContainer->addChild(robtopBtn);
-            newSocialContainer->updateLayout();
-
+            addChild(robtopBtn, socialMenu->getZOrder());
             socialMenu->setVisible(false);
 
-            addChild(newSocialContainer, socialMenu->getZOrder());
-
-            log::info("Set up new social media menu");
+            log::debug("Set up new social media menu");
         } else {
-            log::error("Couldn't find social media menu");
+            log::error("Couldn't find default social media menu");
         };
 
         return true;

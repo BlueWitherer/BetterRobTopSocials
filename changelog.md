@@ -1,3 +1,6 @@
+# v1.3.1 
+- Minor menu UI tweak
+
 # v1.3.0 
 - Added button for [Geometry Dash Official Website](https://geometrydash.com/) to socials pop-up
 

@@ -3,7 +3,6 @@
 #include <Geode/ui/Button.hpp>
 
 class SocialsPopup final : public geode::Popup {
-private:
     struct SocialItem final {
         const char* sprite;
         const char* id;
